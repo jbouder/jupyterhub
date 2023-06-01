@@ -25,7 +25,7 @@ module.exports = {
   },
   output: {
     publicPath: "/",
-    filename: "admin-react.js",
+    filename: "app-react.js",
     path: path.resolve(__dirname, "build"),
   },
   resolve: {

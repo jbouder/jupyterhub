@@ -1,14 +1,12 @@
 {
-  "name": "jupyterhub-admin-react",
+  "name": "jupyterhub-app-react",
   "version": "1.0.0",
-  "description": "React application for the Jupyter Hub admin dashboard service",
+  "description": "React application for Jupyter Hub.",
   "main": "index.js",
-  "author": "nabarber",
-  "license": "BSD-3-Clause",
   "scripts": {
     "build": "yarn && webpack",
     "hot": "webpack && webpack-dev-server",
-    "place": "cp build/admin-react.js* ../share/jupyterhub/static/js/",
+    "place": "cp build/app-react.js* ../share/jupyterhub/static/js/",
     "test": "jest --verbose",
     "snap": "jest --updateSnapshot",
     "lint": "eslint --ext .jsx --ext .js src/",

@@ -20,6 +20,20 @@
   background-color: var(--white);
 }
 
+body {
+  background-color: #f8f8f8;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+  margin-top: 10px;
+}
+
 /* Resets */
 
 .resets .modal {
@@ -29,7 +43,54 @@
 }
 
 /* Global Util Classes */
+
 .adjacent-span-spacing {
   margin-right: 5px;
   margin-left: 5px;
+}
+
+.row {
+  width: 100%;
+}
+
+.col {
+  float: left;
+  width: 100%;
+  margin: 8px;
+}
+
+.col-4 {
+  float: left;
+  width: 30%;
+  margin: 8px;
+}
+
+.card {
+  height: 280px;
+  background-color: #fff;
+  border: 1px solid #e7e7e7;
+  border-radius: 5px;
+  width: 100%;
+  min-height: "200px";
+  margin: 8px 16px 8px 0;
+  padding: 20px;
+}
+
+.card-sm {
+  height: 200px;
+}
+
+.card > p {
+  height: 40px;
+}
+
+.card .btn {
+  border-radius: 0.25rem;
+  padding: 0.75rem 1.25rem;
+}
+
+.card .btn.btn-primary {
+  color: #fff;
+  background-color: #005ea2;
+  min-width: 200px;
 }

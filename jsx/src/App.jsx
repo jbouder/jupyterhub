@@ -7,6 +7,8 @@ import { initialState, reducers } from "./Store";
 import withAPI from "./util/withAPI";
 import { HashRouter, Switch, Route } from "react-router-dom";
 
+import HomeDashboard from "./components/HomeDashboard/HomeDashboard";
+
 import ServerDashboard from "./components/ServerDashboard/ServerDashboard";
 import Groups from "./components/Groups/Groups";
 import GroupEdit from "./components/GroupEdit/GroupEdit";
@@ -17,44 +19,59 @@ import EditUser from "./components/EditUser/EditUser";
 import "./style/root.css";
 
 const store = createStore(reducers, initialState);
+const context = window.location.href.includes("home") ? "home" : "admin";
 
 const App = () => {
   return (
     <div className="resets">
       <Provider store={store}>
         <HashRouter>
-          <Switch>
-            <Route
-              exact
-              path="/"
-              component={compose(withAPI)(ServerDashboard)}
-            />
-            <Route exact path="/groups" component={compose(withAPI)(Groups)} />
-            <Route
-              exact
-              path="/group-edit"
-              component={compose(withAPI)(GroupEdit)}
-            />
-            <Route
-              exact
-              path="/create-group"
-              component={compose(withAPI)(CreateGroup)}
-            />
-            <Route
-              exact
-              path="/add-users"
-              component={compose(withAPI)(AddUser)}
-            />
-            <Route
-              exact
-              path="/edit-user"
-              component={compose(withAPI)(EditUser)}
-            />
-          </Switch>
+          {context === "home" ? (
+            <Switch>
+              <Route
+                exact
+                path="/"
+                component={compose(withAPI)(HomeDashboard)}
+              />
+            </Switch>
+          ) : (
+            <Switch>
+              <Route
+                exact
+                path="/"
+                component={compose(withAPI)(ServerDashboard)}
+              />
+              <Route
+                exact
+                path="/groups"
+                component={compose(withAPI)(Groups)}
+              />
+              <Route
+                exact
+                path="/group-edit"
+                component={compose(withAPI)(GroupEdit)}
+              />
+              <Route
+                exact
+                path="/create-group"
+                component={compose(withAPI)(CreateGroup)}
+              />
+              <Route
+                exact
+                path="/add-users"
+                component={compose(withAPI)(AddUser)}
+              />
+              <Route
+                exact
+                path="/edit-user"
+                component={compose(withAPI)(EditUser)}
+              />
+            </Switch>
+          )}
         </HashRouter>
       </Provider>
     </div>
   );
 };
 
-ReactDOM.render(<App />, document.getElementById("react-admin-hook"));
+ReactDOM.render(<App />, document.getElementById("react-app-hook"));
