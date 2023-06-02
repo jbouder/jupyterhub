@@ -7,7 +7,7 @@ const HomeDashboard = (props) => {
     <div className="container">
       <div className="row">
         <div className="col">
-          <h1>My TEst</h1>
+          <h1>My Workbench</h1>
           <p>Quick access to most used services and actions</p>
         </div>
       </div>
